@@ -1,0 +1,13 @@
+.logo__container {
+  display: flex;
+  font-size: 3rem;
+  max-width: 25%;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: red;
+
+}
+
+.logo__name {
+  font-family: var(--tangerineFont);
+}

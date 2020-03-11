@@ -29,3 +29,6 @@ yarn-error.log*
 
 # IDE
 .idea/
+
+#
+./src/configs/theMovieDBKey.js

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine:700');
+@import "~materialize-css/dist/css/materialize.min.css";
 
 :root {
   --tangerineFont: 'Tangerine', cursive;
@@ -15,7 +16,6 @@
   --red: #d32f2f;
   --serch: #262626;
   --main: #ffff8f;
-  /*--main: #50ffeb;*/
   --card: #2e2e2e;
   --gold: #FFFA38;
 }
