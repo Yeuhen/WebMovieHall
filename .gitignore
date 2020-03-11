@@ -31,4 +31,4 @@ yarn-error.log*
 .idea/
 
 #
-./src/configs/theMovieDBKey.js
+**/configs/theMovieDBKey.js
