@@ -32,3 +32,6 @@ yarn-error.log*
 
 #
 **/configs/theMovieDBKey.js
+
+# secret_keys
+src/configs/theMovieDBKey.js
