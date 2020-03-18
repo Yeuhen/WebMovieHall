@@ -1,0 +1,19 @@
+.search-form {
+  margin-left:200px;
+}
+
+.input-width {
+  max-width: 400pt;
+}
+
+.side-nav li a {
+  text-decoration:none;
+}
+.search-results{
+  background-color:#666666;
+}
+
+.right li a{
+  padding-right:2em;
+  text-decoration:none
+}

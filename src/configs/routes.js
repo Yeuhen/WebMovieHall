@@ -1,18 +1,20 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { TopRatedMovies } from '../components/pages/TopRatedMovies/TopRatedMovies';
-import { MoviePage } from "../components/pages/MoviePage/MoviePage";
+import TopRatedMoviesPage from '../components/pages/TopRatedMoviesPage';
+import { Index } from "../components/pages/TopRatedTVPage";
 
-export const Routes = () => {
+const Routes = () => {
     return (
         <Switch>
             <Route path="/topRatedMovies" exact>
-                <TopRatedMovies />
+                <TopRatedMoviesPage />
             </Route>
             <Route path="/movie" exact>
-                <MoviePage />
+                <Index />
             </Route>
             <Redirect to="/topRatedMovies" />
         </Switch>
     )
 };
+
+export default Routes;

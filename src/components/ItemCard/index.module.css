@@ -1,0 +1,127 @@
+figure, h3 {
+  margin: 0;
+}
+
+.item-card {
+  flex-basis: 63%;
+  margin: 0 auto 1rem;
+  position: relative;
+  font-family: var(--family);
+}
+
+.item-card:last-child {
+  margin: 0 auto;
+}
+
+.item-card figure {
+  position: relative;
+  z-index: 1;
+}
+
+.item-card figcaption {
+  background-color: var(--serch);
+  z-index: -1;
+  position: relative;
+  width: 11rem;
+  min-height: 5.625rem;
+  margin: auto;
+  padding: 1rem 0.5rem;
+  border-radius: 0.125rem;
+  box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.65),inset 0 0.0625rem 0 0 rgba(255, 255, 255, 0.15);
+}
+
+.item-card__name {
+  font-size: var(--mobMedium);
+  color: var(--white);
+  min-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-card__annotation {
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--mobSmall);
+  color: var(--grey);
+}
+
+.img-container {
+  width: 11rem;
+  margin: auto;
+  position: relative;
+  transition: 500ms;
+}
+
+.card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 11rem;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: none;
+}
+
+.item-card:hover .img-container {
+  transition: 500ms;
+  box-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.6);
+  transform: scale(1.08);
+}
+
+.item-card:hover {
+  z-index: 3;
+}
+
+.svg-container {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.card__svg {
+  width: 30px;
+  height: 30px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.card__svg:hover {
+  width: 40px;
+  height: 40px;
+}
+
+
+@media (min-width: 480px) {
+  .item-card {
+    flex-basis: 50%;
+  }
+
+  .item-card:nth-last-child(-n+2) {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 550px) {
+  .item-card {
+    flex-basis: 25%;
+  }
+
+  .item-card:nth-last-child(-n+3) {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .item-card {
+    flex-basis: 20%;
+  }
+
+  .item-card:nth-last-child(-n+4) {
+    margin: 0 auto;
+  }
+}

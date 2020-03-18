@@ -47,6 +47,10 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   margin: 0;
+  background-image: url("./assets/main-background-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #cccccc;
   font-family: -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -79,3 +83,10 @@ img {
   height: auto;
   margin: auto;
 }
+
+::-webkit-scrollbar { width: 4px; height: 3px;}
+::-webkit-scrollbar-track {  background-color: #999;}
+::-webkit-scrollbar-track-piece { background-color: #999;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #f4120c; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #999;}
+::-webkit-resizer { background-color: #666;}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MoviePage = () => {
+export const Index = () => {
     return (
         <div>
             <p>Movie page</p>

@@ -1,21 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Routes } from "./configs/routes";
+import Routes from "./configs/routes";
 import Navbar from './components/Navbar/index';
-import 'materialize-css';
-
-
+// import 'materialize-css';
+import './App.css'
 
 function App() {
+
   return (
       <Router>
-        <div className="wrapper">
           <Navbar />
-          <div className="container blue">
+          <div className="container">
             <Routes />
           </div>
-        </div>
-
       </Router>
   );
 }
