@@ -1,0 +1,39 @@
+.wrapper {
+  background-color: var(--nero);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: var(--main-yellow);
+  text-align: center;
+  padding: 0.5rem 0.5rem;
+  box-shadow: var(--box-shadow-up);
+}
+
+.linkIcon {
+  margin-right: 0.5rem;
+}
+
+.author {
+  color: var(--gold);
+}
+
+.wrapper li {
+  margin-bottom: 0.3rem;
+  padding: 0.1rem;
+}
+
+.wrapper:nth-last-child {
+  margin-bottom: 0;
+}
+
+.copyright, .linkBtn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  color: var(--main-yellow);
+}
+
+.author:hover, .linkBtn:hover {
+  color: var(--red);
+}

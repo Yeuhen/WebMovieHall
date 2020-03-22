@@ -3,6 +3,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  overflow-y: scroll;
-  height: 90vh;
+  /*overflow-y: scroll;*/
+  /*height: 77vh;*/
 }
+
+.content a {
+  margin: 0 auto 1rem;
+  padding: 0.5rem;
+}
+
+.content:last-child {
+  margin: 0 auto;
+}
+

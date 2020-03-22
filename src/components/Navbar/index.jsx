@@ -1,58 +1,83 @@
-import React, {useEffect} from 'react';
-import M from 'materialize-css/dist/js/materialize.min';
-import logo from '../../assets/web-movie-hall-logo.png';
-import './index.module.css'
+import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome/index.es';
+import {library as faLib} from '@fortawesome/fontawesome-svg-core';
+import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {path} from 'ramda'
+import routesEnv from "../../configs/routesEnv";
+import resources from "../../configs/resources";
+import styles from './index.module.css'
 
-const Navbar = () => {
 
-  useEffect(() => {
-    const sidenav = document.querySelectorAll(".sidenav");
-    M.Sidenav.init(sidenav, {});
-  }, []);
+faLib.add(faBars, faTimes);
+
+const Navbar = ({history}) => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const setMenuStyle = showMenu ? [styles.wrapper, styles.showMenu].join(' ') : styles.wrapper;
+  const setIconStyle = showMenu ? faTimes : faBars;
+
+  const handleShowMenu = () => (
+    setShowMenu(!showMenu)
+  );
+
+  const handleGoTo = (target) => {
+    const currentPath = path(['location', 'pathname'], history);
+
+    if (currentPath !== target) {
+      history.push(target)
+    }
+  };
+
+  const {topRatedMovies, topRatedTVs, about} = resources;
 
   return (
-    <nav className="nav-wrapper transparent">
-      <div className="container">
-        <a href="/" className="brand-logo">
-          <img className="materialboxed" width="150em" src={logo} alt="logo"/>
-        </a>
-        <a href="/" className="sidenav-trigger" data-target="mobile-menu">
-          <i className="material-icons">menu</i>
-        </a>
-        <ul className="right hide-on-med-and-down">
-          <li><a href="/">About</a></li>
-          <li><a href="/">Registration</a></li>
-          <li><a href="/">Login</a></li>
-        </ul>
-        <form className=" hide-on-med-and-down search-form" >
-          <div className="input-field input-width" >
-            <input id="search" type="search" required />
-              <label className="label-icon" htmlFor="search">
-                <i className="material-icons">search</i>
-              </label>
-              <i className="material-icons">close</i>
-              <div className="search-results"></div>
-          </div>
-        </form>
-        <ul className="sidenav grey lighten-2" id="mobile-menu">
-          <li><a href="/">About</a></li>
-          <li><a href="/">Registration</a></li>
-          <li><a href="/">Login</a></li>
-          <li className="search">
-            <div className="search-wrapper card input-field">
-              <input type="search"
-                     required />
-                <label className="label-icon" htmlFor="search">
-                  <i className="material-icons">search</i>
-                </label>
-                <i className="material-icons">close</i>
-                <div className="search-results"></div>
-            </div>
+    <>
+      <button
+        onClick={handleShowMenu}
+        className={styles.menuIcon}>
+        <FontAwesomeIcon icon={setIconStyle}/>
+      </button>
+      <nav className={styles.menuWrapper}>
+        <ul className={setMenuStyle}>
+          <li>
+            <button
+              className={styles.link}
+              onClick={() => {
+                handleShowMenu();
+                handleGoTo(routesEnv.TOP_RATED_MOVIES);
+              }}>
+              {topRatedMovies}
+            </button>
+          </li>
+          <li>
+            <button
+              className={styles.link}
+              onClick={() => {
+                handleShowMenu();
+                handleGoTo(routesEnv.TOP_RATED_TV_SHOWS);
+              }}>
+              {topRatedTVs}
+            </button>
+          </li>
+          <li>
+            <button
+              className={styles.link}
+              onClick={() => {
+                handleShowMenu();
+                handleGoTo(routesEnv.ABOUT);
+              }}>
+              {about}
+            </button>
           </li>
         </ul>
-      </div>
-    </nav>
-)
+      </nav>
+    </>
+  )
+};
+
+Navbar.propTypes = {
+  history: PropTypes.shape({push: PropTypes.func, replace: PropTypes.func}).isRequired
 };
 
 export default Navbar;

@@ -1,0 +1,8 @@
+.wrapper {
+  padding: 1.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /*overflow-y: scroll;*/
+  height: 70vh;
+}

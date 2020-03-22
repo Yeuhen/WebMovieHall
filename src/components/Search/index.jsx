@@ -1,27 +1,53 @@
-import React from 'react';
-import './index.module.css';
+import React, {useState,} from 'react';
+import {useHistory} from "react-router-dom";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome/index.es';
+import {library as faLib} from '@fortawesome/fontawesome-svg-core';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import styles from './index.module.css';
+
+faLib.add(faSearch);
 
 const Search = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const history = useHistory();
+  const handleSearchInputChanges = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const resetInputField = () => {
+    setSearchValue("")
+  };
+
+  const callSearchFunction = (e) => {
+    e.preventDefault();
+    history.push(`/search/${searchValue}`);
+    resetInputField();
+  };
+
   return (
-    <div className='search'>
+    <div className={styles.search}>
       <form
         action="#"
         method="post"
-        className="search__form"
-        onSubmit={handlerSearch}
+        className={styles.searchForm}
+        onSubmit={callSearchFunction}
       >
         <input type="text"
-               className="search__input"
-               placeholder="Search music"
-               value={value}
-               onChange={onChange}
+               className={styles.searchInput}
+               placeholder="Search video"
+               value={searchValue}
+               onChange={handleSearchInputChanges}
                name='searchValue'
         />
-        <input type="submit"
-               value="search"
-               className="search__btn"/>
-        <span className='threeLine' onClick={showSidebar}>&#9776;</span>
+        <button type="submit"
+                className={styles.searchBtn}>
+          <FontAwesomeIcon icon={faSearch}/>
+        </button>
       </form>
     </div>
   )
-}
+};
+
+Search.propTypes = {};
+
+export default Search;

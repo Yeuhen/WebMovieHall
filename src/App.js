@@ -1,18 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Routes from "./configs/routes";
-import Navbar from './components/Navbar/index';
-// import 'materialize-css';
-import './App.css'
+import Header from './components/Header/index';
+import './App.css';
+
 
 function App() {
 
   return (
       <Router>
-          <Navbar />
-          <div className="container">
-            <Routes />
-          </div>
+        <Header/>
+        <div className="container">
+          <Routes/>
+        </div>
       </Router>
   );
 }

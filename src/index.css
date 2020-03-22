@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine:700');
-@import "~materialize-css/dist/css/materialize.min.css";
+/*@import "~materialize-css/dist/css/materialize.min.css";*/
 
 :root {
   --tangerineFont: 'Tangerine', cursive;
@@ -12,12 +12,21 @@
   --mobMedium: 0.875rem;
   --mobSmall: 0.75rem;
   --white: #fff;
-  --grey: #7d7d7d;
-  --red: #d32f2f;
+  --black: #000000;
+  --kilamanjaro: #0c0c0cdf;
+  --nero: #1a1a1a;
   --serch: #262626;
-  --main: #ffff8f;
   --card: #2e2e2e;
+  --grey: #7d7d7d;
+  --greyOverlay: rgba(175, 175, 175, 0.8);
+  --red: #d32f2f;
+  --freeSpeechRed: #cc0000;
+  --main: #ffff8f;
   --gold: #FFFA38;
+  --main-yellow: #ffb606;
+
+  --box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.65),inset 0 0.0625rem 0 0 rgba(255, 255, 255, 0.15);
+  --box-shadow-up: 0.5rem 0 0.5rem 0 rgba(0, 0, 0, 0.65),inset 0 0.0625rem 0 0 rgba(255, 255, 255, 0.15);
 }
 
 /* ~~~ RESET ~~~ */
@@ -40,6 +49,7 @@ time, mark, audio, video, button {
   font-size: 100%;
   vertical-align: baseline;
 }
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -85,8 +95,13 @@ img {
 }
 
 ::-webkit-scrollbar { width: 4px; height: 3px;}
+
 ::-webkit-scrollbar-track {  background-color: #999;}
+
 ::-webkit-scrollbar-track-piece { background-color: #999;}
+
 ::-webkit-scrollbar-thumb { height: 50px; background-color: #f4120c; border-radius: 3px;}
+
 ::-webkit-scrollbar-corner { background-color: #999;}
+
 ::-webkit-resizer { background-color: #666;}

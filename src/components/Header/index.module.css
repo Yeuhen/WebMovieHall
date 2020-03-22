@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  position: static;
+  z-index: 9999;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: var(--box-shadow);
+  /*max-height: 5rem;*/
+  flex-wrap: wrap;
+}
+
+.container {
+  flex-basis: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+}
+
+.logoWrapper {
+  width: 150px;
+  max-height: inherit;
+  padding: .5rem 0;
+}
+
+.logoButton {
+  background: transparent;
+  outline: none;
+}
+
+.logoButton:hover {
+  cursor: pointer;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+@media only screen and (min-width: 601px) {
+  .wrapper {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .wrapper {
+    width: 70%;
+    max-width: 1280px;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1000px) and (orientation: landscape) {
+
+}
