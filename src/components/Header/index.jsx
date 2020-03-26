@@ -1,31 +1,30 @@
-import React from "react";
-import {useHistory} from 'react-router-dom';
-import logo from "../../assets/web-movie-hall-logo.png";
-import Navbar from "../Navbar";
-import routesEnv from "../../configs/routesEnv";
-import styles from "./index.module.css";
-import Search from "../Search";
+import React from 'react';
+import Proptypes from 'prop-types';
+import Navbar from '../Navbar';
+import styles from './index.module.css';
+import Search from '../Search';
+import Logo from '../Logo';
 
-const Header = () => {
-  const history = useHistory();
-
-  const handleLogoClick = () => {
-    history.push(routesEnv.HOME);
-  };
+const Header = ({handleLocale, locale}) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className={styles.logoWrapper}>
-          <button className={styles.logoButton} onClick={handleLogoClick}>
-            <img src={logo} alt="logo" className={styles.logo}/>
-          </button>
+      <div className={styles.headContainer}>
+        <Logo locale={locale}/>
+        <div className={styles.menuContainer}>
+          <Navbar handleLocale={handleLocale}
+                  locale={locale}
+          />
+          <Search locale={locale}/>
         </div>
-        <Navbar history={history}/>
       </div>
-      <Search/>
     </div>
-  )
+  );
+};
+
+Header.propTypes = {
+  handleLocale: Proptypes.func.isRequired,
+  locale: Proptypes.string.isRequired
 };
 
 export default Header;

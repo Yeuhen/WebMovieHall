@@ -24,7 +24,7 @@
   flex-direction: column;
   background-color: var(--greyOverlay);
   padding: 1rem;
-
+  box-shadow: var(--box-shadow);
 }
 
 .imgContainer {
@@ -71,7 +71,11 @@
   }
 
   .imgContainer {
-    flex-basis: 100%;
+    max-width: 25%;
+  }
+
+  .itemCard > figcaption {
+    max-width: 50%;
   }
 
   .videoTitle {
@@ -88,7 +92,7 @@
     padding: 2rem;
   }
 
-  .videoTitle{
+  .videoTitle {
     font-size: 1.5rem;
   }
 

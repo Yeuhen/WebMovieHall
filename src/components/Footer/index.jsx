@@ -9,6 +9,7 @@ import styles from './index.module.css';
 faLib.add(faCopyright, faGitSquare, faLinkedin);
 
 const Footer = () => {
+
   return (
     <div className={styles.wrapper}>
       <ul>

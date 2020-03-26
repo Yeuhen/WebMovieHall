@@ -22,7 +22,7 @@ const ItemCard = ({img, name, overview}) => {
 };
 
 ItemCard.propTypes = {
-  img: Proptypes.string.isRequired,
+  img: Proptypes.string,
   name: Proptypes.string.isRequired,
   overview: Proptypes.string.isRequired
 };

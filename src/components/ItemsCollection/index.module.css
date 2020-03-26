@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   /*overflow-y: scroll;*/
-  /*height: 77vh;*/
+  min-height: 70vh;
 }
 
 .content a {

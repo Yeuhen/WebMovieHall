@@ -13,12 +13,12 @@
   cursor: pointer;
   margin-right: 4px;
   transition: 200ms;
-  background-color: #f7f7f7;
+  background-color: var(--greyLight);
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .pagination li:hover {
-  background-color: #2196F3;
+  background-color: var(--oceanBlue);
   transform: scale(1.1);
   transition: 200ms;
 }

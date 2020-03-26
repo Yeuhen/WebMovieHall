@@ -1,18 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome/index.es';
-import {library as faLib} from '@fortawesome/fontawesome-svg-core';
-import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
-import {path} from 'ramda'
-import routesEnv from "../../configs/routesEnv";
-import resources from "../../configs/resources";
-import styles from './index.module.css'
+import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index.es';
+import { library as faLib } from '@fortawesome/fontawesome-svg-core';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { path } from 'ramda';
+import routesEnv from '../../configs/routesEnv';
+import resources from '../../configs/resources';
+import styles from './index.module.css';
 
 
 faLib.add(faBars, faTimes);
 
-const Navbar = ({history}) => {
+const Navbar = ({ handleLocale, locale }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [activeLangBtn, setActiveLangBtn] = useState('');
+  const history = useHistory();
 
   const setMenuStyle = showMenu ? [styles.wrapper, styles.showMenu].join(' ') : styles.wrapper;
   const setIconStyle = showMenu ? faTimes : faBars;
@@ -21,18 +24,45 @@ const Navbar = ({history}) => {
     setShowMenu(!showMenu)
   );
 
+  const langBtnStyle = (lang) => {
+    if (activeLangBtn === lang) {
+      return [styles.langBtn, styles.langBtnActive].join(' ');
+    }
+    return styles.langBtn;
+  };
+
   const handleGoTo = (target) => {
     const currentPath = path(['location', 'pathname'], history);
 
     if (currentPath !== target) {
-      history.push(target)
+      history.push(`${target}/${locale}`);
     }
   };
 
-  const {topRatedMovies, topRatedTVs, about} = resources;
+  useEffect( () => {
+    setActiveLangBtn(locale)
+  }, [locale]);
+
+  const { topRatedMovies, topRatedTVs, about } = resources;
 
   return (
     <>
+      <ul className={styles.localeWrapper}>
+        <li>
+          <button className={langBtnStyle('ru-RU')}
+                  onClick={() => {
+                    handleLocale('ru-RU');
+                  }}>RU
+          </button>
+        </li>
+        <li>
+          <button className={langBtnStyle('en-US')}
+                  onClick={() => {
+                    handleLocale('en-US');
+                  }}>EN
+          </button>
+        </li>
+      </ul>
       <button
         onClick={handleShowMenu}
         className={styles.menuIcon}>
@@ -47,7 +77,7 @@ const Navbar = ({history}) => {
                 handleShowMenu();
                 handleGoTo(routesEnv.TOP_RATED_MOVIES);
               }}>
-              {topRatedMovies}
+              {topRatedMovies[`${locale}`]}
             </button>
           </li>
           <li>
@@ -57,7 +87,7 @@ const Navbar = ({history}) => {
                 handleShowMenu();
                 handleGoTo(routesEnv.TOP_RATED_TV_SHOWS);
               }}>
-              {topRatedTVs}
+              {topRatedTVs[`${locale}`]}
             </button>
           </li>
           <li>
@@ -67,17 +97,18 @@ const Navbar = ({history}) => {
                 handleShowMenu();
                 handleGoTo(routesEnv.ABOUT);
               }}>
-              {about}
+              {about[`${locale}`]}
             </button>
           </li>
         </ul>
       </nav>
     </>
-  )
+  );
 };
 
 Navbar.propTypes = {
-  history: PropTypes.shape({push: PropTypes.func, replace: PropTypes.func}).isRequired
+  handleLocale: PropTypes.func.isRequired,
+  locale: PropTypes.string.isRequired,
 };
 
 export default Navbar;

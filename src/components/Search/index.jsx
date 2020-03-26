@@ -1,35 +1,50 @@
-import React, {useState,} from 'react';
-import {useHistory} from "react-router-dom";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome/index.es';
-import {library as faLib} from '@fortawesome/fontawesome-svg-core';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index.es';
+import { library as faLib } from '@fortawesome/fontawesome-svg-core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from './index.module.css';
 
 faLib.add(faSearch);
 
-const Search = () => {
-  const [searchValue, setSearchValue] = useState("");
+const Search = ({locale}) => {
+  const [searchValue, setSearchValue] = useState('');
+  const [showSearchbar, seShowSearchbar] = useState(false);
   const history = useHistory();
+
+  const setSearchFormStyle = showSearchbar ? [styles.searchForm, styles.showSearchForm].join(' ') : styles.searchForm;
+
+  const handleSearchBarShow = () => {
+    seShowSearchbar(!showSearchbar);
+  };
+
   const handleSearchInputChanges = (e) => {
     setSearchValue(e.target.value);
   };
 
   const resetInputField = () => {
-    setSearchValue("")
+    setSearchValue('');
   };
 
   const callSearchFunction = (e) => {
     e.preventDefault();
-    history.push(`/search/${searchValue}`);
+    history.push(`/search/${locale}/${searchValue}`);
     resetInputField();
+    handleSearchBarShow();
   };
 
   return (
-    <div className={styles.search}>
+    <>
+      <button className={styles.mobileSearchBtn}
+              onClick={handleSearchBarShow}
+      >
+        <FontAwesomeIcon icon={faSearch}/>
+      </button>
       <form
         action="#"
         method="post"
-        className={styles.searchForm}
+        className={setSearchFormStyle}
         onSubmit={callSearchFunction}
       >
         <input type="text"
@@ -44,10 +59,12 @@ const Search = () => {
           <FontAwesomeIcon icon={faSearch}/>
         </button>
       </form>
-    </div>
-  )
+    </>
+  );
 };
 
-Search.propTypes = {};
+Search.propTypes = {
+  locale: PropTypes.string.isRequired
+};
 
 export default Search;

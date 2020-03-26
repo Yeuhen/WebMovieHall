@@ -1,13 +1,25 @@
-.logo__container {
-  display: flex;
-  font-size: 3rem;
-  max-width: 25%;
-  flex-wrap: wrap;
-  text-align: center;
-  background-color: red;
-
+.logoWrapper {
+  flex-basis: 150px;
+  padding: .5rem 0;
 }
 
-.logo__name {
-  font-family: var(--tangerineFont);
+.logoButton {
+  background: transparent;
+  outline: none;
+}
+
+.logoButton:hover {
+  cursor: pointer;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 601px) {
+  .logoWrapper {
+    flex-basis: 200px;
+  }
 }

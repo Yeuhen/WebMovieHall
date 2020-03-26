@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine:700');
-/*@import "~materialize-css/dist/css/materialize.min.css";*/
 
 :root {
   --tangerineFont: 'Tangerine', cursive;
@@ -13,17 +12,22 @@
   --mobSmall: 0.75rem;
   --white: #fff;
   --black: #000000;
+  --blackShadow: rgba(255, 255, 255, 0.2);
   --kilamanjaro: #0c0c0cdf;
   --nero: #1a1a1a;
   --serch: #262626;
   --card: #2e2e2e;
   --grey: #7d7d7d;
   --greyOverlay: rgba(175, 175, 175, 0.8);
+  --greyLight: #f7f7f7;
   --red: #d32f2f;
   --freeSpeechRed: #cc0000;
   --main: #ffff8f;
   --gold: #FFFA38;
   --main-yellow: #ffb606;
+  --selected-yellow: #8b6506;
+  --oceanBlue: #2196F3;
+  --seaBlue: #00ecf3;
 
   --box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.65),inset 0 0.0625rem 0 0 rgba(255, 255, 255, 0.15);
   --box-shadow-up: 0.5rem 0 0.5rem 0 rgba(0, 0, 0, 0.65),inset 0 0.0625rem 0 0 rgba(255, 255, 255, 0.15);
