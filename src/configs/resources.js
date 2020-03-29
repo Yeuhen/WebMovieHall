@@ -11,8 +11,13 @@ export default {
   itemImg: 'poster_path',
   itemBackdropImg: 'backdrop_path',
   itemOverview: 'overview',
+  itemOverviewNotFound: 'К сожалению, перевод отсутствует. Однако Вы можете ознакомиться с описанием перейдя на английскую версию сайта.',
   itemRelease: 'release_date',
   itemVote: 'vote_average',
+  searchPlaceholder: {
+    'en-US': 'Search video',
+    'ru-RU': 'Поиск видео',
+  },
   topRatedMovies: {
     'en-US': 'Top Movies',
     'ru-RU': 'Лучшие фильмы',
@@ -23,18 +28,13 @@ export default {
   },
   feedback: 'Feedback',
   about: {
-    'en-US': 'About Us',
-    'ru-RU': 'Про нас',
+    'en-US': 'Info',
+    'ru-RU': 'Инфо',
   },
-  author: ' Yeuhen',
-  authorLink: 'https://github.com/Yeuhen',
-  git: 'Yeuhen',
-  gitLink: 'https://github.com/Yeuhen',
-  linkedIn: 'yevhen-yurchenko',
-  linkedInLink: 'https://www.linkedin.com/in/yevhen-yurchenko/',
   searchNotFound: {
     'en-US': 'No results were found for your request. Please, change your query and try again.',
-    'ru-RU': 'Ничего не найдено по вашему запросу или неверный адресс.',
+    'ru-RU': 'Ничего не найдено по вашему запросу. Вы можете изменить запрос и попробовать еще раз.',
   },
-  recommended: 'Recomended',
+  urlNotFound: 'This is not the web page you are looking for.',
+  recommended: 'Recommended'
 };

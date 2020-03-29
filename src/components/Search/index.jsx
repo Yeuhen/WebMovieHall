@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome/index.es';
 import { library as faLib } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from './index.module.css';
+import resources from '../../configs/resources';
 
 faLib.add(faSearch);
 
@@ -49,7 +50,7 @@ const Search = ({locale}) => {
       >
         <input type="text"
                className={styles.searchInput}
-               placeholder="Search video"
+               placeholder={resources.searchPlaceholder[`${locale}`]}
                value={searchValue}
                onChange={handleSearchInputChanges}
                name='searchValue'

@@ -20,7 +20,7 @@
 .searchForm {
   display: flex;
   position: absolute;
-  bottom: 150%;
+  bottom: 180%;
   left: 0;
   transform: translateY(100%);
   width: 100%;

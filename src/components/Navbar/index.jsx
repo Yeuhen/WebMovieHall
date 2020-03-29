@@ -95,7 +95,7 @@ const Navbar = ({ handleLocale, locale }) => {
               className={styles.link}
               onClick={() => {
                 handleShowMenu();
-                handleGoTo(routesEnv.ABOUT);
+                handleGoTo(routesEnv.INFO);
               }}>
               {about[`${locale}`]}
             </button>

@@ -6,6 +6,7 @@ export default {
   VIDEO_CARD_TV: '/tv',
   VIDEO_CARD_MOVIE: '/movie',
   VIDEO_NOT_FOUND: '/no-result',
+  URL_NOT_FOUND: '/url-not-found',
   FEEDBACK: '/top-rated-tv',
-  ABOUT: '/top-rated-tv',
+  INFO: '/info',
 }

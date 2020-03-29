@@ -1,0 +1,186 @@
+.wrapper {
+  background-image: url("../../../assets/bg-texture.jpg");
+  min-height: inherit;
+  background-size: cover;
+  text-align: center;
+}
+
+.imgInfo {
+  max-width: 50%;
+  padding-top: 0.5rem;
+}
+
+.mainTitle {
+  font: var(--tangerineFont);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--main-yellow);
+  font-style: italic;
+  margin-top: -2.8rem;
+}
+
+.container {
+  max-width: 100%;
+  margin: auto;
+  background-color: var(--bloodDark);
+  color: var(--white);
+}
+
+.AboutService {
+
+}
+
+.title {
+  padding: 1.5rem 0 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--main-yellow);
+}
+
+.description {
+  padding: 0 1rem;
+}
+
+.sep {
+  display: block;
+  width: 30%;
+  padding-bottom: 1.5rem;
+  margin: 1rem auto 0;
+  border-top: 1px dashed var(--main-yellow);
+}
+
+
+.myPhoto {
+  border-radius: 50%;
+}
+
+.photoWrapper {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.linkIcon {
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+  font-size: 2rem;
+  margin-left: auto;
+  color: var(--main-yellow);
+}
+
+.devData {
+  display: block;
+  line-height: 1.25;
+}
+
+.devName, .devRole {
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.2rem 0;
+}
+
+.devName {
+  font-size: 1.2rem;
+}
+
+.devRole {
+  font-size: 1.15rem;
+}
+
+.devInfo {
+  padding: 10px;
+}
+
+.devInfo > p {
+  padding: 0 1rem;
+  text-indent: 1rem;
+  text-align: left;
+}
+
+.skillList {
+  width: 60%;
+  text-align: left;
+  margin: auto;
+  list-style: disc;
+}
+
+.skillList > li {
+
+}
+
+@media screen and (min-width: 601px) {
+  .mainTitle {
+    margin-top: -3rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .mainTitle {
+    margin-top: -5.15rem;
+  }
+
+  .container {
+    margin: 2rem 2rem 0;
+    border-radius: 1.5rem;
+  }
+
+  .figureWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1rem 1rem 3rem;
+
+  }
+
+  .photoWrapper {
+    margin: 0;
+    flex-basis: 30%;
+    max-width: 15rem;
+    height: fit-content;
+  }
+
+  .linkIcon {
+    bottom: 0;
+    right: 0;
+  }
+
+  .devRole {
+    margin-bottom: 12px;
+    color: var(--main-yellow);
+  }
+
+  .devInfo {
+    padding: 0;
+    max-width: 40rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .mainTitle {
+    margin-top: -5.4rem;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .mainTitle {
+    margin-top: -5.6rem;
+  }
+}
+
+@media screen and (min-width: 1680px) {
+  .mainTitle {
+    margin-top: -5.9rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .mainTitle {
+    margin-top: -6.1rem;
+  }
+}

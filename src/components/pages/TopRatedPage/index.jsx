@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { useHttp } from '../../../services/hooks/http.hooks';
@@ -7,17 +7,18 @@ import Loader from '../../Loader/index';
 import ItemsCollection from '../../ItemsCollection/index';
 import { API_URL_BASE } from '../../../configs/backendAPI';
 import resources from '../../../configs/resources';
-import styles from './index.module.css';
 import routesEnv from '../../../configs/routesEnv';
+import styles from './index.module.css';
 
 const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
   const [videoProducts, setVideoProducts] = useState({});
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(null);
   const [marginPagesDisplayed, setMarginPagesDisplayed] = useState(1);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(1);
   const { loading, request } = useHttp();
   const { searchData } = useParams();
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const fetchVideo = useCallback(async () => {
     try {
@@ -26,12 +27,17 @@ const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
       const isTopRated = () => topRated ? '/top_rated' : '';
       const searchQuery = () => searchData ? `&query=${searchData}` : '';
       const url = () => `${API_URL_BASE}/${isSearch()}${product}${isTopRated()}?api_key=${apiKey}&language=${locale}${searchQuery()}&page=${currentPage}`;
+
       const fetched = await request(url(product), 'GET');
       setVideoProducts(fetched);
     } catch (e) {
       console.error(e); //eslint-disable-line
     }
   }, [request, currentPage, product, searchData, topRated, locale]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [product]);
 
   useEffect(() => {
     fetchVideo();
@@ -44,7 +50,8 @@ const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
       setMarginPagesDisplayed(3);
       setPageRangeDisplayed(3);
     }
-  }, [fetchVideo]);
+    window.scrollTo(0, 0);
+  }, [fetchVideo, pathname]);
 
   const handlePageClick = data => {
     setCurrentPage(data.selected + 1);
@@ -98,7 +105,7 @@ const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
 TopRatedPage.propTypes = {
   product: PropTypes.string.isRequired,
   topRated: PropTypes.bool.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
 };
 
 export default TopRatedPage;

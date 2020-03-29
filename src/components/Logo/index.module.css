@@ -1,6 +1,7 @@
 .logoWrapper {
   flex-basis: 150px;
   padding: .5rem 0;
+  margin: auto 0;
 }
 
 .logoButton {

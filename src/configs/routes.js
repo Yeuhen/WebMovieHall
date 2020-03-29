@@ -5,11 +5,21 @@ import routesEnv from './routesEnv';
 import TopRatedPage from '../components/pages/TopRatedPage';
 import VideoPage from '../components/pages/VideoPage';
 import NotFoundPage from '../components/pages/NotFoundPage';
+import UrlNotFoundPage from '../components/pages/UrlNotFoundPage';
+import Info from '../components/pages/Info';
 
-const Routes = ({locale}) => {
+const Routes = ({ getLocale }) => {
+
+  const locale = getLocale();
 
   return (
     <Switch>
+      <Route path='/' exact>
+        <TopRatedPage product='movie'
+                      topRated
+                      locale={locale}
+        />
+      </Route>
       <Route path={`${routesEnv.TOP_RATED_TV_SHOWS}/:locale`} exact>
         <TopRatedPage product='tv'
                       topRated
@@ -39,17 +49,22 @@ const Routes = ({locale}) => {
                    locale={locale}
         />
       </Route>
+      <Route path={`${routesEnv.INFO}/:locale`} exact>
+        <Info locale={locale}/>
+      </Route>
       <Route path={`${routesEnv.VIDEO_NOT_FOUND}/:locale`} exact>
         <NotFoundPage locale={locale}/>
       </Route>
-      <Redirect to={`${routesEnv.VIDEO_NOT_FOUND}`}/>
-      <NotFoundPage locale='en-US' />
+      <Route path={`${routesEnv.URL_NOT_FOUND}`} exact>
+        <UrlNotFoundPage/>
+      </Route>
+      <Redirect to={`${routesEnv.URL_NOT_FOUND}`}/>
     </Switch>
   );
 };
 
 Routes.propTypes = {
-  locale: PropTypes.string.isRequired,
+  getLocale: PropTypes.func.isRequired,
 };
 
 export default Routes;

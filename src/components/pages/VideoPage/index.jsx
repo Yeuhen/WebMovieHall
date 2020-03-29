@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useHttp } from '../../../services/hooks/http.hooks';
 import Loader from '../../Loader/index';
@@ -12,13 +12,15 @@ import resources from '../../../configs/resources';
 const VideoPage = ({ product, locale }) => {
   const [videoData, setVideoData] = useState({});
   const [recommendationData, setRecommendationData] = useState({});
+  const { pathname } = useLocation();
+  const overviewText = videoData.overview ? videoData.overview : resources.itemOverviewNotFound;
 
   const img = videoData[resources.itemImg];
   const imgBackdrop = videoData[resources.itemBackdropImg]
     ? `${API_IMG_ORIGINAL}${videoData[resources.itemBackdropImg]}`
     : '';
 
-  const backDropStyle = videoData[resources.itemBackdropImg] ? `background-image: url(${imgBackdrop})` : `background-color: var(--seaBlue)`;
+  const backDropStyle = videoData[resources.itemBackdropImg] ? {'backgroundImage': `url(${imgBackdrop})` } : { 'backgroundColor': 'var(--seaBlue)' };
 
   const { id } = useParams();
 
@@ -53,7 +55,8 @@ const VideoPage = ({ product, locale }) => {
   useEffect(() => {
       fetchVideoDetail();
       fetchRecommendations();
-    }, [fetchVideoDetail, fetchRecommendations, locale, id],
+      window.scrollTo(0, 0);
+    }, [fetchVideoDetail, fetchRecommendations, locale, id, pathname],
   );
 
   if (loading) {
@@ -68,7 +71,7 @@ const VideoPage = ({ product, locale }) => {
       <>
         <div className={styles.wrapper}>
           <div className={styles.container}
-               style={{ backDropStyle }}
+               style={ backDropStyle }
           >
             <figure className={styles.itemCard}>
               <div className={styles.imgContainer}>
@@ -76,7 +79,7 @@ const VideoPage = ({ product, locale }) => {
               </div>
               <figcaption>
                 <h2 className={styles.videoTitle}>{videoData[resources.movieName] || videoData[resources.tvName]}</h2>
-                <p className={styles.videoOverview}>{videoData[resources.itemOverview]}</p>
+                <p className={styles.videoOverview}>{overviewText}</p>
               </figcaption>
             </figure>
           </div>
@@ -96,7 +99,7 @@ const VideoPage = ({ product, locale }) => {
 
 VideoPage.propTypes = {
   product: PropTypes.string.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
 };
 
 export default VideoPage;

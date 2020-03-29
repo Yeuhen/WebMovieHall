@@ -3,8 +3,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  /*overflow-y: scroll;*/
-  min-height: 70vh;
 }
 
 .content a {

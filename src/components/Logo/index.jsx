@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
 import logo from '../../assets/web-movie-hall-logo.png';
 import routesEnv from '../../configs/routesEnv';
 import styles from './index.module.css';
-import PropTypes from 'prop-types';
 
 const Logo = ({locale}) => {
 
