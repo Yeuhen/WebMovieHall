@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2399070c.chunk.css",
+    "main.js": "/static/js/main.6927d78f.chunk.js",
+    "main.js.map": "/static/js/main.6927d78f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.489ead42.js",
+    "runtime-main.js.map": "/static/js/runtime-main.489ead42.js.map",
+    "static/js/2.998d9357.chunk.js": "/static/js/2.998d9357.chunk.js",
+    "static/js/2.998d9357.chunk.js.map": "/static/js/2.998d9357.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.1593c25bbdd361d12164b8d9a24ee1bd.js": "/precache-manifest.1593c25bbdd361d12164b8d9a24ee1bd.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2399070c.chunk.css.map": "/static/css/main.2399070c.chunk.css.map",
+    "static/js/2.998d9357.chunk.js.LICENSE.txt": "/static/js/2.998d9357.chunk.js.LICENSE.txt",
+    "static/media/index.module.css": "/static/media/bg-texture.bbb6049a.jpg",
+    "static/media/heart.png": "/static/media/heart.78947c6e.png",
+    "static/media/index.css": "/static/media/main-background-image.a8f38891.jpg",
+    "static/media/myPhoto_1.jpg": "/static/media/myPhoto_1.882ca956.jpg",
+    "static/media/no-image-available.jpg": "/static/media/no-image-available.e1105a56.jpg",
+    "static/media/web-movie-hall-logo.png": "/static/media/web-movie-hall-logo.9585d6da.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.489ead42.js",
+    "static/js/2.998d9357.chunk.js",
+    "static/css/main.2399070c.chunk.css",
+    "static/js/main.6927d78f.chunk.js"
+  ]
+}
