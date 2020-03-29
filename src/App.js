@@ -9,7 +9,10 @@ function App() {
   const [localeLang, setLocaleLang] = useState('');
 
   function getLocale() {
-    return JSON.parse(localStorage.getItem('lang')) !== null ? JSON.parse(localStorage.getItem('lang')) : 'ru-Ru';
+    if(localStorage.getItem('lang') !== null) {
+      return JSON.parse(localStorage.getItem('lang'));
+    }
+    return localStorage.setItem('lang', JSON.stringify('ru-RU'));
   }
 
   const handleLocale = (target) => {
