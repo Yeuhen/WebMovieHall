@@ -1,45 +1,65 @@
 .itemCard {
-  flex-basis: 63%;
   position: relative;
   font-family: var(--family);
+  box-shadow: var(--box-shadow);
 }
 
 .itemCard figure {
+  display: flex;
+  flex-direction: row;
   position: relative;
   z-index: 1;
+  background-color: var(--greyOverlay);
 }
 
 .itemCard figcaption {
-  background-color: var(--serch);
+  background-color: var(--greyOverlay);
   z-index: -1;
   position: relative;
   width: 11rem;
-  min-height: 5.625rem;
-  margin: auto;
   padding: 1rem 0.5rem;
   border-radius: 0.125rem;
-  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.itemTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .itemName {
   font-size: var(--mobMedium);
   color: var(--white);
-  min-height: 2rem;
   margin-bottom: 0.5rem;
+  max-height: 3.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.itemTitleWrapper p {
+  font-size: 0.7em;
+  color: var(--nero);
+  font-style: italic;
 }
 
 .itemAnnotation {
+  max-height: 4rem;
   display: -webkit-box;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: var(--mobSmall);
-  color: var(--grey);
-  height: 6rem;
+  color: var(--black);
+  text-indent: 1.5em;
 }
 
 .imgContainer {
-  width: 11rem;
+  width: 7rem;
   margin: auto;
   display: block;
   position: relative;
@@ -48,7 +68,7 @@
 
 .imgContainer img {
   width: 100%;
-  height: 18rem;
+  height: 11rem;
   object-fit: cover;
 }
 
@@ -63,20 +83,34 @@
 }
 
 @media (min-width: 480px) {
+  .imgContainer {
+    width: 11rem;
+  }
+
+  .imgContainer img {
+    height: 18rem;
+
+  }
+
   .itemCard {
     flex-basis: 50%;
+  }
+
+  .itemCard figure {
+    flex-direction: column;
   }
 
   .itemCard:nth-last-child(-n+2) {
     margin: 0 auto;
   }
+
+  .itemCard figcaption {
+    min-height: 11rem;
+    width: 100%;
+  }
 }
 
 @media (min-width: 550px) {
-  .itemCard {
-    flex-basis: 25%;
-  }
-
   .itemCard:nth-last-child(-n+3) {
     margin: 0 auto;
   }
@@ -84,7 +118,6 @@
 
 @media (min-width: 1024px) {
   .itemCard {
-    flex-basis: 20%;
   }
 
   .itemCard:nth-last-child(-n+4) {

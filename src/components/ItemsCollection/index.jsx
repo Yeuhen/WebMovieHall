@@ -17,7 +17,8 @@ const ItemsCollection = ({itemsData = [], product, locale}) => {
                     backdropImg={el[resources.itemBackdropImg]}
                     overview={el[resources.itemOverview]}
                     release={el[resources.itemRelease]}
-                    vote={el[resources.itemVote]}
+                    voteAverage={el[resources.itemVoteAverage]}
+                    locale={locale}
                     key={el[resources.itemId]}
 
           />

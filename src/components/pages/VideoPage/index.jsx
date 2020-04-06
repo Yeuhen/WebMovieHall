@@ -84,7 +84,7 @@ const VideoPage = ({ product, locale }) => {
             </figure>
           </div>
           <div className={styles.recommendedWrapper}>
-            <h2 className={styles.recommendedTitle}>{resources.recommended}</h2>
+            <h2 className={styles.recommendedTitle}>{resources.recommended[`${locale}`]}</h2>
           </div>
           <ItemsCollection itemsData={recommendationData.results}
                            product={product}

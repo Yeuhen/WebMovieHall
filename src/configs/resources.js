@@ -13,7 +13,7 @@ export default {
   itemOverview: 'overview',
   itemOverviewNotFound: 'К сожалению, перевод отсутствует. Однако Вы можете ознакомиться с описанием перейдя на английскую версию сайта.',
   itemRelease: 'release_date',
-  itemVote: 'vote_average',
+  itemVoteAverage: 'vote_average',
   searchPlaceholder: {
     'en-US': 'Search video',
     'ru-RU': 'Поиск видео',
@@ -36,5 +36,8 @@ export default {
     'ru-RU': 'Ничего не найдено по вашему запросу. Вы можете изменить запрос и попробовать еще раз.',
   },
   urlNotFound: 'This is not the web page you are looking for.',
-  recommended: 'Recommended'
+  recommended: {
+    'en-US': 'Recommendations',
+    'ru-RU': 'Рекоммендуем'
+  }
 };
