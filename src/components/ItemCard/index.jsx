@@ -6,7 +6,7 @@ import CircularProgressBar from '../CircularProgressBar/index';
 import resources from '../../configs/resources';
 import styles from './index.module.css';
 
-const ItemCard = ({ img, name, overview, voteAverage, release, locale }) => {
+const ItemCard = ({ img, name, overview, voteAverage, release =  '', locale }) => {
   const overviewText = overview.length > 1 ? overview : resources.itemOverviewNotFound;
 
   const getReleasedDate = () => {
@@ -41,15 +41,13 @@ ItemCard.propTypes = {
   name: Proptypes.string.isRequired,
   overview: Proptypes.string.isRequired,
   voteAverage: Proptypes.number.isRequired,
-  release: Proptypes.string.isRequired,
+  release: Proptypes.string,
   locale: Proptypes.string.isRequired,
 };
 
-ItemCard.defaultTypes = {
-  img: Proptypes.string,
-  name: Proptypes.string,
-  overview: Proptypes.string,
-  voteAverage: Proptypes.number,
+ItemCard.defaultProps = {
+  img: '',
+  release:'',
 };
 
 export default ItemCard;
