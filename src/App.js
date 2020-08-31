@@ -6,14 +6,14 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
-  const [localeLang, setLocaleLang] = useState('');
+  const [localeLang, setLocaleLang] = useState('ru-RU');
 
-  function getLocale() {
+  const getLocale = () => {
     if(localStorage.getItem('lang') !== null) {
       return JSON.parse(localStorage.getItem('lang'));
     }
     return localStorage.setItem('lang', JSON.stringify('ru-RU'));
-  }
+  };
 
   const handleLocale = (target) => {
     localStorage.setItem('lang', JSON.stringify(target));
@@ -31,7 +31,7 @@ function App() {
                 locale={localeLang}
         />
         <div className="container">
-          <Routes getLocale={getLocale}/>
+          <Routes locale={localeLang}/>
         </div>
         <Footer locale={localeLang}/>
       </div>

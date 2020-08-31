@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import resources from "../../../configs/resources";
 import styles from './index.module.css'
 
-const NotFoundPage = ({locale='en-US'}) => {
+const NotFoundPage = ({locale}) => {
 
   return (
     <div className={styles.wrapper}>
@@ -14,10 +14,6 @@ const NotFoundPage = ({locale='en-US'}) => {
 
 NotFoundPage.propTypes = {
   locale: PropTypes.string.isRequired
-};
-
-NotFoundPage.defaultTypes = {
-  locale: PropTypes.string
 };
 
 export default NotFoundPage;

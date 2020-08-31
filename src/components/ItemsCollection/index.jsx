@@ -5,11 +5,11 @@ import ItemCard from '../ItemCard/index';
 import resources from "../../configs/resources";
 import styles from './index.module.css';
 
-const ItemsCollection = ({itemsData = [], product, locale}) => {
+const ItemsCollection = ({itemsData = [], sectionVideo, locale}) => {
 
   return (
     <div className={styles.content}>
-      {itemsData.map(el => <Link to={`/${product}/${locale}/${el[resources.itemId]}`}
+      {itemsData.map(el => <Link to={`/detail/${sectionVideo}/${el[resources.itemId]}`}
                                  key={`link:${el[resources.itemId]}`}
         >
           <ItemCard name={el[resources.movieName] || el[resources.tvName]}
@@ -29,7 +29,7 @@ const ItemsCollection = ({itemsData = [], product, locale}) => {
 };
 
 ItemsCollection.propTypes = {
-  product: PropTypes.string.isRequired,
+  sectionVideo: PropTypes.string.isRequired,
   itemsData: PropTypes.arrayOf(
     PropTypes.shape({
       popularity: PropTypes.number,

@@ -1,0 +1,31 @@
+<picture>
+ <source type="image/webp" srcset="image.webp">
+ <source type="image/jpeg" srcset="image.jpg">
+ <img src="image.jpg" alt="Изображение">
+</picture>
+
+function checkWebPSupport) {
+  return new Promise((resolve, reject) => {
+	var img = new Image();
+	img.onload = function() { resolve(); };
+    img.onerror = function() { reject(); };
+    img.src = 'http://www.gstatic.com/webp/gallery/1.webp';
+  })
+}
+And an amazing idea is using canvas.
+function canUseWebP() {
+    var elem = document.createElement('canvas');
+    if (!!(elem.getContext && elem.getContext('2d'))) {
+        // was able or not to get WebP representation
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+    }
+    // very old browser like IE 8, canvas not supported
+    return false;
+}
+If you try webp in CSS, you need to use a high-level class.
+.no-webp .elementWithBackgroundImage {
+  background-image: url("image.jpg");
+}
+.webp .elementWithBackgroundImage{
+  background-image: url("image.webp");
+}

@@ -1,16 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
 import logo from '../../assets/web-movie-hall-logo.png';
 import routesEnv from '../../configs/routesEnv';
 import styles from './index.module.css';
 
-const Logo = ({locale}) => {
+const Logo = () => {
 
-  const history = useHistory(locale);
+  const history = useHistory();
 
   const handleLogoClick = () => {
-    history.push(`${routesEnv.HOME}/${locale}`);
+    history.push(`${routesEnv.HOME}`);
   };
 
   return (
@@ -21,9 +20,5 @@ const Logo = ({locale}) => {
     </div>
   );
 };
-Logo.propTypes = {
-  locale: PropTypes.string.isRequired
-};
-
 
 export default Logo;

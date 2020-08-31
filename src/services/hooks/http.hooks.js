@@ -4,6 +4,7 @@ export const useHttp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // useCallback -что бы Реакт не уходил в рекурсию
   const request = useCallback(async (url, method = 'GET') => {
     setLoading(true);
 

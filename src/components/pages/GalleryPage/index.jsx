@@ -1,43 +1,49 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { useParams, useHistory, useLocation } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { useHttp } from '../../../services/hooks/http.hooks';
 import Loader from '../../Loader/index';
 import ItemsCollection from '../../ItemsCollection/index';
-import { API_URL_BASE } from '../../../configs/backendAPI';
+// import { API_URL_BASE } from '../../../configs/backendAPI';
 import resources from '../../../configs/resources';
 import routesEnv from '../../../configs/routesEnv';
+import { getURI } from '../../../services/fetchData';
 import styles from './index.module.css';
 
-const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
+const GalleryPage = ({ locale }) => {
   const [videoProducts, setVideoProducts] = useState({});
   const [currentPage, setCurrentPage] = useState(null);
   const [marginPagesDisplayed, setMarginPagesDisplayed] = useState(1);
   const [pageRangeDisplayed, setPageRangeDisplayed] = useState(1);
   const { loading, request } = useHttp();
-  const { searchData } = useParams();
+  const { id, searchData } = useParams();
   const history = useHistory();
-  const { pathname } = useLocation();
+
+  const sectionVideo = 'tv';
+  const typeProduct = 'top_rated';
 
   const fetchVideo = useCallback(async () => {
     try {
-      const apiKey = process.env.REACT_APP_API_URL;
-      const isSearch = () => searchData ? 'search/' : '';
-      const isTopRated = () => topRated ? '/top_rated' : '';
-      const searchQuery = () => searchData ? `&query=${searchData}` : '';
-      const url = () => `${API_URL_BASE}/${isSearch()}${product}${isTopRated()}?api_key=${apiKey}&language=${locale}${searchQuery()}&page=${currentPage}`;
-
-      const fetched = await request(url(product), 'GET');
+      const parameters = {
+        'sectionVideo': sectionVideo,
+        'id': id,
+        'typeProduct': typeProduct,
+        'locale': locale,
+        'searchData': searchData,
+        'page': currentPage,
+      };
+      const url = getURI(parameters);
+      const fetched = await request(url, 'GET');
       setVideoProducts(fetched);
-    } catch (e) {
-      console.error(e); //eslint-disable-line
+      // eslint-disable-next-line no-empty
+    } catch (e) { // errors catcher already present in http.hooks.js
     }
-  }, [request, currentPage, product, searchData, topRated, locale]);
+  }, [request, sectionVideo, id, typeProduct, locale,  searchData, currentPage]);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [product]);
+  }, []);
 
   useEffect(() => {
     fetchVideo();
@@ -51,7 +57,7 @@ const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
       setPageRangeDisplayed(3);
     }
     window.scrollTo(0, 0);
-  }, [fetchVideo, pathname]);
+  }, [fetchVideo]);
 
   const handlePageClick = data => {
     setCurrentPage(data.selected + 1);
@@ -82,7 +88,7 @@ const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
       {!loading
       && <>
         <ItemsCollection itemsData={videoProducts.results}
-                         product={product}
+                         sectionVideo={sectionVideo}
                          locale={locale}
         />
       </>
@@ -102,10 +108,8 @@ const TopRatedPage = ({ product = 'movie', topRated, locale }) => {
   );
 };
 
-TopRatedPage.propTypes = {
-  product: PropTypes.string.isRequired,
-  topRated: PropTypes.bool.isRequired,
+GalleryPage.propTypes = {
   locale: PropTypes.string.isRequired,
 };
 
-export default TopRatedPage;
+export default GalleryPage;

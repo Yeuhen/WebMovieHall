@@ -1,5 +1,6 @@
 export default {
   HOME: '/top-rated-movies',
+  GALLERY_PAGE:'/gallery',
   TOP_RATED_MOVIES: '/top-rated-movies',
   TOP_RATED_TV_SHOWS: '/top-rated-tv',
   SEARCH_RESULT: '/search',

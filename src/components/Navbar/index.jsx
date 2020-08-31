@@ -35,7 +35,7 @@ const Navbar = ({ handleLocale, locale }) => {
     const currentPath = path(['location', 'pathname'], history);
 
     if (currentPath !== target) {
-      history.push(`${target}/${locale}`);
+      history.push(`${target}}`);
     }
   };
 

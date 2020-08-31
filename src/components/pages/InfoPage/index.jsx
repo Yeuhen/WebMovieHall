@@ -10,7 +10,7 @@ import styles from './index.module.css';
 
 faLib.add(faLinkedin);
 
-const Info = ({ locale }) => {
+const InfoPage = ({ locale }) => {
   const arrDevInfo = about.devInfo[`${locale}`];
   const arrDevSkills = arrDevInfo.slice(1, arrDevInfo.length-1);
 
@@ -58,8 +58,8 @@ const Info = ({ locale }) => {
   );
 };
 
-Info.propTypes = {
+InfoPage.propTypes = {
   locale: PropTypes.string.isRequired,
 };
 
-export default Info;
+export default InfoPage;

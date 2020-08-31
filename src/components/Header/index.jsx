@@ -10,7 +10,7 @@ const Header = ({handleLocale, locale}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.headContainer}>
-        <Logo locale={locale}/>
+        <Logo />
         <div className={styles.menuContainer}>
           <Navbar handleLocale={handleLocale}
                   locale={locale}

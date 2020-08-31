@@ -1,0 +1,80 @@
+
+SEARCH		                                  API_URL_BASE		   sectionVideo   id         typeProduct            api_key               locale          page        adult
+multi  		                          https://api.themoviedb.org/3/ search       -         /multi             ?api_key=<<api_key>>   &language=en-US   &page=1   &include_adult=false
+person 		                          https://api.themoviedb.org/3/ search       -         /person            ?api_key=<<api_key>>   &language=en-US   &page=1   &include_adult=false
+movies 		                          https://api.themoviedb.org/3/ search       -         /movie             ?api_key=<<api_key>>   &language=en-US   &page=1   &include_adult=false
+keywords 	                          https://api.themoviedb.org/3/ search       -         /keyword           ?api_key=<<api_key>>        -            &page=1
+collections 	                      https://api.themoviedb.org/3/ search       -         /collection        ?api_key=<<api_key>>   &language=en-US   &page=1
+companies	                          https://api.themoviedb.org/3/ search       -         /company           ?api_key=<<api_key>>        -            &page=1
+tvShows		                          https://api.themoviedb.org/3/ search       -         /tv                ?api_key=<<api_key>>   &language=en-US   &page=1   &include_adult=false
+
+MOVIES
+/movie/{movie_id}			              https://api.themoviedb.org/3  /movie   /{movie_id}                      ?api_key=<<api_key>>   &language=en-US
+/movie/{movie_id}/credits		        https://api.themoviedb.org/3  /movie   /{movie_id}   /credits           ?api_key=<<api_key>>        -
+/movie/{movie_id}/images		        https://api.themoviedb.org/3  /movie   /{movie_id}   /images            ?api_key=<<api_key>>   &language=en-US
+/movie/{movie_id}/recommendations	  https://api.themoviedb.org/3  /movie   /{movie_id}   /recommendations   ?api_key=<<api_key>>   &language=en-US   &page=1
+/movie/{movie_id}/videos		        https://api.themoviedb.org/3  /movie   /{movie_id}   /videos            ?api_key=<<api_key> >  &language=en-US		            (youtube, trailers)
+/movie/popular				              https://api.themoviedb.org/3  /movie        -        /popular           ?api_key=<<api_key>>   &language=en-US   &page=1		(daily_new)
+/movie/top_rated			              https://api.themoviedb.org/3  /movie        -        /top_rated         ?api_key=<<api_key>>   &language=en-US   &page=1
+/movie/upcoming				              https://api.themoviedb.org/3  /movie        -        /upcoming          ?api_key=<<api_key>>   &language=en-US   &page=1
+
+TV_SHOWS
+/tv/{tv_id}				                  https://api.themoviedb.org/3   /tv      /{tv_id}                        ?api_key=<<api_key>>   &language=en-US
+/tv/{tv_id}/credits			            https://api.themoviedb.org/3   /tv      /{tv_id}     /credits           ?api_key=<<api_key>>   &language=en-US
+/tv/{tv_id}/images			            https://api.themoviedb.org/3   /tv      /{tv_id}     /images            ?api_key=<<api_key>>   &language=en-US
+/tv/{tv_id}/recommendations		      https://api.themoviedb.org/3   /tv      /{tv_id}     /recommendations   ?api_key=<<api_key>>   &language=en-US   &page=1
+/tv/{tv_id}/videos			            https://api.themoviedb.org/3   /tv      /{tv_id}     /videos            ?api_key=<<api_key>>   &language=en-US
+/tv/popular				                  https://api.themoviedb.org/3   /tv       -           /popular           ?api_key=<<api_key>>   &language=en-US   &page=1
+/tv/top_rated				                https://api.themoviedb.org/3   /tv       -           /top_rated         ?api_key=<<api_key>>   &language=en-US   &page=1
+
+/:section/gallery/:typeProduct
+                 /popular
+                 /top_rated
+                 /upcoming
+   <GalleryPage>
+
+/:section/detail/:id/:typeProduct
+                    /credits
+                    /images
+                    /recommendations
+                    /videos
+                    /none
+    <<VideoPage>
+/:section/search/:typeProduct/:searchData
+                /multi
+                /person
+                /movie
+                /keyword
+                /collection
+                /company
+                /tv
+    <GalleryPage>
+
+
+commonParameters = {
+API_URL_BASE: https://api.themoviedb.org/3,
+videoSection: [ '/search', '/movie', '/tv'],
+id: [/movie_id, /tv_id],
+typeVideo: ['/credits', '/images', '/recommendations', '/videos', '/popular', '/top_rated', '/upcoming'],
+api_key: `api_key=${process.env.REACT_APP_API_URL}`,
+locale: ['en-US', 'ru-RU'],
+page: number,
+include_adult: boolean
+}
+
+const {API_URL_BASE, videoSection, id ='', typeVideo='', api_key, locale='ru-RU', page='', include_adult='' } =commonParameters;
+
+url () => `${API_URL_BASE}${videoSection}${id}${typeVideo}${api_key}${locale}${page}${include_adult}`
+
+http://localhost:3000/gallery/movie/upcoming
+http://localhost:3000/detail/movie/238
+
+
+
+https://api.themoviedb.org/3/movie/238/none?api_key=979101e3dc251c60c712281e72df7090&language=en-US 404
+      <Route path={`${routesEnv.GALLERY_PAGE}/:sectionVideo(/:id)(/:typeProduct)/:locale(/:searchData)`}>
+
+
+9-я серия
+
+api_key=979101e3dc251c60c712281e72df7090&language=ru-RU&page=1
